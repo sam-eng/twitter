@@ -40,19 +40,19 @@
                         <viewLayoutGuide key="safeArea" id="myN-eX-pqY"/>
                     </view>
                     <connections>
-                        <segue destination="7gL-YP-3xT" kind="presentation" identifier="loginToHome" id="wfd-7X-wcp"/>
+                        <segue destination="7gL-YP-3xT" kind="presentation" identifier="loginToHome" modalPresentationStyle="fullScreen" id="wfd-7X-wcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZd-qS-Gmc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="88.799999999999997" y="156.97151424287858"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="svH-ia-7DR">
             <objects>
-                <tableViewController id="onc-Uj-6O5" sceneMemberID="viewController">
+                <tableViewController id="onc-Uj-6O5" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jiU-ee-UvO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -70,7 +70,14 @@
                             <outlet property="delegate" destination="onc-Uj-6O5" id="Qrd-Wv-9jB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="jD7-gq-KNZ"/>
+                    <navigationItem key="navigationItem" title="Home" id="jD7-gq-KNZ">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="b14-en-dcI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onLogout:" destination="onc-Uj-6O5" id="p3w-M8-Pca"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpt-38-BKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,8 +88,12 @@
             <objects>
                 <navigationController id="7gL-YP-3xT" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ug4-B8-zrI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.46101769390000003" green="0.78933696949999999" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="onc-Uj-6O5" kind="relationship" relationship="rootViewController" id="D35-XM-QN2"/>
