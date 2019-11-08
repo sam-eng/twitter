@@ -17,9 +17,10 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         myRefreshControl.addTarget(self, action: #selector(loadTweet), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,6 +90,8 @@ class HomeTableViewController: UITableViewController {
         cell.nameLabel.text = user["name"] as? String
         cell.tweetContentLabel.text = tweetArray[indexPath.row]["text"] as? String
         
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
         
         return cell
     }
